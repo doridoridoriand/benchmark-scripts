@@ -3,7 +3,7 @@ iterations = (ENV['ITERATIONS'] || '1000000000').to_i
 start_time = Time.now
 
 res = 0
-for i in 0...iterations do
+for i in 0..iterations-1 do
   res += i
 end
 
