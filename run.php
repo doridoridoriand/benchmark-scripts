@@ -1,15 +1,13 @@
 <?php
-class Benchmark_php {
-  public function do_bench() {
-    $count_start = microtime(true);
-    $string = '';
-    for ($i = 0; $i < 100000000000; $i++) {
-      $string += $i;
-      //print $string;
-    }
-    $count_stop = microtime(true);
-    print ($count_stop - $count_start);
-  }
+$iterations_env = getenv('ITERATIONS');
+$iterations = $iterations_env === false ? 1000000000 : (int)$iterations_env;
+
+$start_time = microtime(true);
+
+$res = 0;
+for ($i = 0; $i < $iterations; $i++) {
+  $res += $i;
 }
-$benchmark = new Benchmark_php();
-$benchmark->do_bench();
+
+$end_time = microtime(true);
+printf('%.2f', $end_time - $start_time);

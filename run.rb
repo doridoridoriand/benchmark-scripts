@@ -1,13 +1,11 @@
-require 'pp'
+iterations = (ENV['ITERATIONS'] || '1000000000').to_i
 
-class Benchmark_Ruby
-  def do_bench
-    res = ""
-    for i in 0..1000000000 do
-      string =+ i
-    end
-    pp string
-  end
+start_time = Time.now
+
+res = 0
+for i in 0...iterations do
+  res += i
 end
-bench = Benchmark_Ruby.new
-bench.do_bench
+
+end_time = Time.now
+puts format('%.2f', end_time - start_time)
