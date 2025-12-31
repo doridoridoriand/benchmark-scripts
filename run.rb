@@ -8,4 +8,4 @@ for i in 0...iterations do
 end
 
 end_time = Time.now
-puts format('%.2f', end_time - start_time)
+print format('%.2f', end_time - start_time)
